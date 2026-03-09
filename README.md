@@ -75,6 +75,7 @@ Your Personal AI Assistant; easy to install, deploy on your own machine or on th
 > - **I don’t want to install Python**: [Script install](#script-install) handles Python automatically, or use [ModelScope one-click](https://modelscope.cn/studios/fork?target=AgentScope/CoPaw) for cloud deployment.
 
 - [News](#news)
+- [🚀 shengshengyi Branch - Multi-Agent Config](#shengshengyi-branch-multi-agent-config) ⭐ **New**
 - [Quick Start](#quick-start)
 - [API Key](#api-key)
 - [Local Models](#local-models)
@@ -86,6 +87,204 @@ Your Personal AI Assistant; easy to install, deploy on your own machine or on th
 - [Why CoPaw?](#why-copaw)
 - [Built by](#built-by)
 - [License](#license)
+
+---
+
+## 🚀 shengshengyi Branch - Multi-Agent Config
+
+> **本分支（`shengshengyi`）是基于官方 CoPaw 的扩展，添加了多智能体配置示例。**
+
+### 📋 分支说明
+
+| 属性 | 说明 |
+|------|------|
+| **分支名** | `shengshengyi` |
+| **Fork 来源** | [agentscope-ai/CoPaw](https://github.com/agentscope-ai/CoPaw) |
+| **创建时间** | 2026-03-09 |
+| **CoPaw 版本** | V0.0.5 |
+| **主要功能** | 多智能体群聊配置示例 |
+
+### 🆚 与官方 CoPaw 的差异
+
+#### 1. 新增多 Agent 配置示例
+
+**修改内容：**
+- 在 `examples/multi-agent-config/` 目录下添加了完整的 Agent 配置集合
+- 包含 7 个核心配置文件 + 1 个说明文档 + 效果截图
+
+**具体文件：**
+
+| 文件 | 说明 | 效果 |
+|------|------|------|
+| `AGENT_CONFIG.md` | Agent 频道绑定配置 | 实现飞书群聊专属绑定，自动响应无需@ |
+| `AGENTS.md` | 群聊运营手册 | 规范回复格式、响应时效、运营策略 |
+| `BOOTSTRAP.md` | 首次运行引导 | 初始化对话，建立用户档案 |
+| `HEARTBEAT.md` | 定时任务配置 | 群聊运营节奏，自动总结技术热点 |
+| `MEMORY.md` | 记忆系统 | 群聊上下文、项目记忆、代码片段库 |
+| `PROFILE.md` | Agent 档案 | 角色定义、服务对象、技术专长 |
+| `SOUL.md` | 核心设定 | 性格、能力、原则、关键词触发 |
+
+**达到的效果：**
+- ✅ 从单 Agent 模式扩展到多 Agent 协作
+- ✅ 支持飞书群聊专属绑定，自动响应技术问题
+- ✅ 建立团队技术知识库，积累代码片段和解决方案
+- ✅ 实现群聊运营自动化（定时总结、热点追踪）
+
+#### 2. 场景化定制
+
+**官方 CoPaw：**
+- 通用型 AI 助手
+- 适合个人工作空间
+- 需要用户明确指令
+
+**本分支：**
+- 垂直场景专用（飞书群聊技术讨论）
+- 内置技术关键词触发机制
+- 自动识别代码、报错、架构等技术话题
+
+**关键词触发示例：**
+```
+用户: 这段代码有个bug...
+软件工程师助手: （自动识别并响应，无需@）
+
+用户: 这个需求怎么评估工期？
+产品经理助手: （自动响应产品相关问题）
+```
+
+#### 3. 记忆维度扩展
+
+| 记忆类型 | 官方 CoPaw | 本分支 |
+|---------|-----------|--------|
+| 对话历史 | ✅ | ✅ |
+| 用户偏好 | ✅ | ✅ |
+| 群成员档案 | ❌ | ✅ 记录成员技术栈和专长 |
+| 项目技术方案 | ❌ | ✅ 跟踪项目架构决策 |
+| 代码片段库 | ❌ | ✅ 积累常用解决方案 |
+| 技术债务追踪 | ❌ | ✅ 标记待优化点 |
+
+#### 4. 响应方式升级
+
+**官方 CoPaw：**
+```
+用户: @机器人 帮我看看这段代码
+机器人: （响应）
+```
+
+**本分支：**
+```
+用户: 这段代码报错了，NullPointerException
+软件工程师助手: （自动识别技术关键词，主动响应）
+```
+
+#### 5. 定时任务增强
+
+**官方 CoPaw：**
+- 个人日程提醒
+- 任务截止日期通知
+
+**本分支：**
+- 群聊技术热点总结（每日/每周）
+- 待解决技术问题跟进
+- 长期未决问题标记提醒
+- 代码规范自动检查
+
+#### 6. 自动同步机制
+
+**新增文件：** `auto-sync.sh`
+
+**功能：**
+- 每天 01:00 和 13:00 自动同步上游更新
+- 自动合并到 `main` 和 `shengshengyi` 分支
+- 保持与官方 CoPaw 的兼容性
+
+### 📁 文件结构对比
+
+```
+官方 CoPaw                    本分支 shengshengyi
+├── .github/                  ├── .github/
+├── console/                  ├── console/
+├── deploy/                   ├── deploy/
+├── examples/                 ├── examples/
+│   └── (空)              →   │   └── multi-agent-config/  ⭐新增
+│                               │       ├── AGENT_CONFIG.md
+│                               │       ├── AGENTS.md
+│                               │       ├── BOOTSTRAP.md
+│                               │       ├── HEARTBEAT.md
+│                               │       ├── MEMORY.md
+│                               │       ├── PROFILE.md
+│                               │       ├── SOUL.md
+│                               │       ├── README.md
+│                               │       └── docs/images/
+├── scripts/                  ├── scripts/
+├── src/copaw/                ├── src/copaw/
+├── tests/                    ├── tests/
+├── website/                  ├── website/
+├── README.md                 ├── README.md  (添加本章节)
+└── ...                       ├── auto-sync.sh  ⭐新增
+                              └── ...
+```
+
+### 🎯 使用场景
+
+#### 场景 1：代码审查
+```
+群成员A: 大家帮我review一下这个PR
+[代码片段]
+
+软件工程师助手: 
+> 这段代码有几个问题：
+> 1. 第15行缺少空值检查
+> 2. 可以用Stream API简化循环逻辑
+> 3. 建议添加异常处理
+```
+
+#### 场景 2：Bug 定位
+```
+群成员B: 报错了！NullPointerException at line 45
+
+软件工程师助手:
+> 这个错误通常是因为对象未初始化导致的。
+> 建议检查：
+> 1. userService是否已注入
+> 2. getUserById返回值是否为null
+> 3. 数据库连接是否正常
+```
+
+#### 场景 3：架构讨论
+```
+群成员C: 我们在考虑微服务拆分，有什么建议？
+
+软件工程师助手:
+> 从当前规模和业务复杂度来看，建议：
+> 1. 按业务域拆分（用户、订单、支付）
+> 2. 先拆出独立的数据库
+> 3. 使用消息队列解耦
+```
+
+### 🚀 快速开始
+
+```bash
+# 1. 克隆本分支
+git clone -b shengshengyi https://github.com/shengshengyi/CoPaw.git
+
+# 2. 进入配置目录
+cd CoPaw/examples/multi-agent-config
+
+# 3. 复制配置到 CoPaw 工作目录
+cp -r * ~/.copaw/workspaces/software/
+
+# 4. 启动 CoPaw
+copaw run
+```
+
+详细使用说明请参考：[examples/multi-agent-config/README.md](examples/multi-agent-config/README.md)
+
+### 🤝 贡献指南
+
+欢迎提交 Issue 和 PR！本分支的修改遵循以下原则：
+- 保持与官方 CoPaw 的兼容性
+- 不修改核心代码，只添加配置示例
+- 文档完善，易于理解和使用
 
 ---
 
