@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轻量级论坛</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">💬 轻量级论坛</h1>
+            <nav class="nav">
+                <a href="#" class="nav-link active">首页</a>
+                <a href="#boards" class="nav-link">版块</a>
+                <a href="#login" class="nav-link">登录</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="sidebar">
+                <div class="board-list">
+                    <h3>热门版块</h3>
+                    <ul id="boardList">
+                        <li><a href="#" data-board="1">💬 综合讨论</a></li>
+                        <li><a href="#" data-board="2">💻 技术交流</a></li>
+                        <li><a href="#" data-board="3">❓ 问答求助</a></li>
+                        <li><a href="#" data-board="4">📢 公告通知</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="post-header">
+                    <h2>最新帖子</h2>
+                    <button class="btn btn-primary" id="newPostBtn">发布新帖</button>
+                </div>
+
+                <div class="post-list" id="postList">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>轻量级论坛系统 © 2026 | 多Agent协作开发</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
